@@ -29,7 +29,11 @@ function userMsg(wxmsg, retmsg) {
             retmsg.msgtype = wxmsg.MsgType;
             return formatMsg(retmsg);
         }
-    } else {
+    }else if(wxmsg.MsgType == 'event'){
+        retmsg.msg = "欢迎关注！";
+        retmsg.msgtype = 'text';
+        return formatMsg(retmsg);
+    }else {
         switch(wxmsg.MsgType) {
             case 'image':
             case 'voice':
